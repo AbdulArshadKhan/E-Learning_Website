@@ -1,0 +1,52 @@
+  <!DOCTYPE html>
+<html>
+<head>
+	<title>Add Course</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style type="text/css">
+  	table
+  	{
+  		border-collapse: separate;
+  		border-spacing: 10px 10px;
+  	}
+    ul.errorlist {
+    margin: 0;
+    padding: 0;
+    }
+    .errorlist li
+    {
+      border:1px solid red;
+      list-style-type: none;
+      text-align: center;
+      color: red;
+      background: rgba(255, 0, 0, 0.15);
+      margin: 0 0 3px;
+      padding: 4px 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body align="center" style="margin-top: 20px;margin-bottom: 50px" >
+  <h3 align="center">Student Sign Up</h3>
+<form method="POST" align="center" novalidate>
+    {% csrf_token %} 
+    
+    <div class="col-md-8 offset-2 mt-5 card shadow-lg h-90" >
+	<div class="card-body "> 
+    <table align="center" style="text-align: left;s">
+    {{data.as_table}}
+	</table>
+	<br>
+    <a href="{% url 'visit' %}" class="mx-auto col-md-4 form-control btn btn-outline-primary">Return to Home</a>
+    <input type="submit" class="col-md-4 mx-auto form-control btn btn-outline-success"  value ="Register"/> 
+	</div>
+	</div>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

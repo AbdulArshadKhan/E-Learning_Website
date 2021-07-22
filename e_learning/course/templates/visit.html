@@ -1,0 +1,194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="text/css" href="{% static 'images/1.jpg' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+  
+  div
+  {
+  	max-height: auto
+  }
+  @media (min-width:  992px) {
+    .container{
+        max-width: 1100px;
+    }
+  }
+  @media all and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu{ display: none; }
+  .navbar .nav-item:hover .nav-link{   }
+  .navbar .nav-item:hover .dropdown-menu{ display: block; }
+  .navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+  img
+  {
+    height: 120px;
+  }
+  
+  .card {
+    transition: transform 0.2s ease;
+    height: 300px;
+  }
+  .card:hover
+  {
+    transform: scale(1.1);
+  }
+  .enroll
+  {
+  	text-align: center;
+  }
+  .card-title
+  {
+     
+     height:70px;
+  }
+  .dropdown-menu {
+    min-width: 3rem;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.dropdown-toggle::after {
+            content: none;
+        }
+        .footer 
+  {
+    color: #707070;
+    height: 60px;
+    width:100%;
+    font-size: small;
+    text-align: center;
+  }
+  html,body
+  {
+    height: 100%;
+  }
+  .content-division
+  {
+    min-height: 100%;
+  }
+  .content-main
+  {
+    overflow: auto;
+    padding-bottom: 100px;
+  }
+  </style>
+</head>
+<body>
+
+<div class="content-division">
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light" style="border-bottom: 2px solid grey">
+  
+    <a class="navbar-brand " href="{% url 'visit' %}"><strong>  E-Learning  </strong></a>
+    
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <ul class="navbar-nav ml-auto mr-2">
+      
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+      </li>
+      <li class="nav-item dropdown mr-3">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sign Up
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 's_signup' %}">Student</a>
+          <a class="dropdown-item" href="{% url 'a_signup' %}">Teacher</a>
+        </div>
+      </li>
+              
+    </ul>
+    
+
+
+</nav>
+
+
+
+
+<div class="container-fluid content-main">
+
+<h3 class=" m-2 p-2"> Courses Available</h3>
+
+
+<div class="container">
+
+  <div class="row ">
+  	{% for i in data %}
+      {% if i.status == "Verified" %}
+    	 <div class="col-md-2 card mt-3 shadow-sm p-3 mb-5 bg-white rounded mx-3">
+      		<a href="{% url 'play' i.id %}" style="text-decoration: none;color:inherit;">
+      		<img src="{{i.banner.url}}"  class=" mt-1 " width="150px" >
+      		<div align="center" class="card-body">
+            <h6 class="card-title mb-1">{{i.title}}</h6>		
+      		  <button class="btn btn-success">Enroll</button>
+      		</div>
+          </a>
+        
+       </div>
+      {% endif %}
+
+  	{% endfor %}
+  </div>
+</div>
+
+
+</div>
+
+</div>
+
+<div class="footer mt-4 mb-1 bg-secondary text-light " >
+  <p>Footer</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+/*.col-md-2 
+  {
+    
+    margin-top: 5px;
+    border:1px solid green;
+  }
+  .title
+  {
+    overflow: hidden;
+    height: 25px;
+    transition-delay: 1s;
+    -webkit-transition:2s;
+  }
+  .ce:hover 
+  {
+    transform: scale(1.5);
+    overflow: visible;
+    transition:1s;
+    transition-timing-function:linear;
+
+    border:2px dashed green;
+  }
+*/ -->
